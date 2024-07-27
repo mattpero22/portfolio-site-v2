@@ -1,15 +1,19 @@
-import React, {Component} from "react";
-import '../styles/Main.css'
+import React, { useEffect } from "react";
 
-class Main extends Component {
+export default function Main() {
 
-    render() {
+    useEffect(() => {
+        let hex0 = document.getElementsByClassName('hex0');
+        let hex0List = [].slice.call(hex0)
+        let hex0Set = hex0List.map((e)=>{ return e.innerHTML = '&#x2B22'})        
+    }, [])
+
         return (
             <div id="mainComponent">
-                Welcome to the site
+                <div className="hex0"></div>
+                <div className="hex0"></div>
+                <div className="hex0"></div>
+                <div className="hex0"></div>
             </div>
         )
-    }
 }
-
-export default Main;
