@@ -1,13 +1,15 @@
-import React, {Component} from "react";
+import React, { useEffect } from "react";
 
-class Header extends Component {
-    render() {
+export default function Header() {
         return (
             <header id="headerComponent">
-                Welcome to the site
+                <div id="headerLogo">
+                    <div>matt</div>
+                    <div>pero</div>
+                </div>
+                <ul id="headerNav">
+                    <li className="navItem">Home</li>
+                </ul>
             </header>
         )
-    }
 }
-
-export default Header;
