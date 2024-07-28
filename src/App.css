@@ -6,11 +6,16 @@
     --main-font-color: #E3DBDB;
 }
 
+
+
 /**********/
 /* global */
 /**********/
 .App {
-    background-color: var(--main-bg-color);
+    background-color: #28428F;
+    opacity: 1;
+    background-image: radial-gradient(circle at center center, #19180A, #28428F), repeating-radial-gradient(circle at center center, #19180A, #19180A, 27px, transparent 54px, transparent 27px);
+    background-blend-mode: multiply;
     color: var(--main-font-color);
 }
 
@@ -18,19 +23,27 @@
 /* mobile */
 /**********/
 #headerComponent {
-    height: 10vh;
+    position: relative;
+    height: 7vh;
     display: flex;
     justify-content: space-between;
 }
+    #headerComponent * {
+        background-color: black;
+    }
 
 #mainComponent {
-    height: 85vh;
+    height: 88vh;
+    width: 100vw;
+    display: flex;
+    overflow: -moz-hidden-unscrollable;
 }
 
 #footerComponent {
     height: 5vh;
     display: flex;
     justify-content: center;
+    margin-bottom: 0px;
 }
 
 /**********/
@@ -42,46 +55,39 @@
 /***********/
 
 
-/***********/
-/* hexagons */
-/***********/
-
-/***********/
-/* hexagon background*/
-/***********/
-
-#hexBackgroundComponent {
+/* ripple */
+.ripple0 {
     position: absolute;
-    z-index: 1;
-    display: flex;
-    --s: 100px;
-    --m: 4px;
-    --f: calc(var(--s) * 1.732 + 4 * var(--m) - 1px);
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 100px;
+    height: 100px;
 }
 
-#hexContainer {
-    font-size: 0;
+.ripple0:before,
+.ripple0:after {
+  content:'';
+  display:block;
+  position:absolute;
+  top:0; right:0; bottom:0; left:0;
+  border-radius:50%;
+  border:1px solid #011242;
 }
 
-#hexContainer::before {
-    content: "";
-    width: calc(var(--s)/2 + var(--m));
-    float: left;
-    height: 100%;
-    shape-outside: repeating-linear-gradient(#0000 0 calc(var(--f) - 3px), #000 0 var(--f));
+.ripple0:before {
+    animation: ripple 6s linear infinite;
+  }
+.ripple0:after {
+    animation: ripple 6s linear 1s infinite;
   }
 
-#hexContainer .hex0 {
-    width: var(--s);
-    margin: var(--m);
-    height: calc(var(--s) * 1.1547);
-    display: inline-block;
-    font-size: initial; /* we reset the font-size if we want to add some content */
-    clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
-    margin-bottom: calc(var(--m) - var(--s) * 0.2886); /* some negative margin to create overlap */
-    background-color: #19180A;
-}
 
-#hexContainer .hex0:hover {
-    background-color: #E3DBDB;
-}
+
+@keyframes ripple{
+    0% {transform:scale(1); }
+    75% {transform:scale(17.5); opacity:1;}
+    100% {transform:scale(20); opacity:0;}
+  }
