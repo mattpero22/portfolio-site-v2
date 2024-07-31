@@ -5,14 +5,15 @@ export default function Landing() {
     const [position, setPosition] = useState({ x: 0, y: 0 })
 
     useEffect(() => {
-        let constrain = 122;
+        let constrainY = 122;
+        let constrainX = 62;
 
         function transforms(x, y, el) {
             let box = el.getBoundingClientRect();
-            let calcX = -(y - box.y - (box.height / 2)) / constrain;
-            let calcY = (x - box.x - (box.width / 2)) / constrain;
+            let calcX = -(y - box.y - (box.height / 2)) / constrainX;
+            let calcY = (x - box.x - (box.width / 2)) / constrainY;
 
-            return "perspective(100px) " + " rotateX("+ calcX +"deg) " + " rotateY("+ calcY +"deg) ";
+            return "perspective(150px) " + " rotateX("+ calcX +"deg) " + " rotateY("+ calcY +"deg) ";
 
         };
 
