@@ -6,7 +6,6 @@ export default function Header() {
                 <div id="headerLogo">
                 </div>
                 <ul id="headerNav">
-                    <li className="navItem">Home</li>
                 </ul>
             </header>
         )
