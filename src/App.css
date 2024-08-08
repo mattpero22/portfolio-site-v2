@@ -4,6 +4,7 @@
 :root {
     --main-bg-color: #19180A;
     --main-font-color: #E3DBDB;
+    --accent-color: #232622;
     --main-font: url('../public/assets/fonts/Roboto-Regular.ttf');
 }
 
@@ -42,7 +43,7 @@ body {
 }
 
 #headerLogo {
-    font-size: 36px;
+    font-size: 48px;
     font-weight: 500;
     color: var(--main-font-color);
     text-decoration: none;
@@ -54,7 +55,7 @@ body {
 } 
 
 .headerTab {
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 500;
     color: var(--main-font-color);
     text-decoration: none;
@@ -76,9 +77,9 @@ body {
     margin-bottom: 0px;
 }
 
-#landingPage {
+#landing {
     z-index: 2;
-    height: 88vh;
+    height: 95vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -87,8 +88,7 @@ body {
 }
 
 #landingName,
-#landingTitle,
-#landingBlurb {
+#landingTitle {
     z-index: 2;
 }
 
@@ -105,10 +105,33 @@ body {
     z-index: 2;
     height: 88vh;
     width: 100vw;
+}
+
+#about {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
-    justify-content: center;
+}
+
+#aboutBlurb {
+    padding: 20px;
+    width: auto;
+    max-width: 300px;
+    font-size: 20px;
+}
+
+#aboutBlurbHeading {
+    font-size: 64px;
+}
+
+#portrait {
+    max-width: 300px;
+    width: auto;
+    height: auto;
+    border-radius: 50px;
+    border: 1px solid var(--main-bg-color);
+    box-shadow: 30px 30px var(--accent-color);
 }
 
 /**********/
@@ -122,19 +145,48 @@ body {
     #landingTitle {
         font-size: 36px;
     }
-
 }
+
+/**********/
+/* laptop or smaller display */
+/**********/
+@media (min-width: 768px) and (max-width: 1023px) {
+    #about {
+        flex-direction: row;
+    }
+
+    #aboutBlurb {
+        max-width: 320px;
+    }
+
+    #portrait {
+        max-width: 350px;
+    }
+}
+
 
 /***********/
 /* desktop */
 /***********/
-@media (min-width: 767px) {
+@media (min-width: 1024px) {
     #landingName {
         font-size: 128px;
     }
 
     #landingTitle {
         font-size: 48px;
+    }
+
+    #about {
+        flex-direction: row;
+    }
+
+    #aboutBlurb {
+        max-width: 475px;
+    }
+
+    #portrait {
+        max-width: 500px;
     }
 }
 
