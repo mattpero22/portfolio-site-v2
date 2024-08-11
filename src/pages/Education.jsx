@@ -4,7 +4,7 @@ import React from "react";
 const Education = () => {
     return (
         <div id="education">
-            <p className="pageTitle">Education</p>
+            <p id="educationPageTitle" className="pageTitle">My Education</p>
             <div className="education_wrapper">
                 <img class="school_logo" src="https://seeklogo.com/images/G/general-assembly-logo-82F6D5B9DB-seeklogo.com.png" alt="general assembly" />
                 <div className="education_overview">
