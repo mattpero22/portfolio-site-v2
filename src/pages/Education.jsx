@@ -4,9 +4,9 @@ import React from "react";
 const Education = () => {
     return (
         <div id="education">
-            <p id="educationPageTitle" className="pageTitle">My Education</p>
+            <p className="pageTitle">My Education</p>
             <div className="education_wrapper">
-                <img class="school_logo" src="https://seeklogo.com/images/G/general-assembly-logo-82F6D5B9DB-seeklogo.com.png" alt="general assembly" />
+                <img class="school_logo" src="https://seeklogo.com/images/G/general-assembly-logo-82F6D5B9DB-seeklogo.com.png" alt="general assembly school logo" />
                 <div className="education_overview">
                     <h2>General Assembly</h2>
                     <h3>Software Engineering Immersive Bootcamp</h3>
@@ -20,7 +20,7 @@ const Education = () => {
             </div>
 
             <div className="education_wrapper">
-                <img class="school_logo" src="https://www.newpaltz.edu/media/web-assets/logos-images-and-icons/logo_transparent.png" alt="suny new paltz" />
+                <img class="school_logo" src="https://www.newpaltz.edu/media/web-assets/logos-images-and-icons/logo_transparent.png" alt="suny new paltz school logo" />
                 <div className="education_overview">
                     <h2>SUNY New Paltz</h2>
                     <h3>Bachelor of Science in Mechanical Engineering</h3>

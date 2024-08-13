@@ -35,7 +35,8 @@ const Header = () => {
                         <HashLink className={"headerTab"} smooth to="/#about">About</HashLink>
                         <HashLink className={"headerTab"} smooth to="/#experience">Experience</HashLink>
                         <HashLink className={"headerTab"} smooth to="/#experience">Education</HashLink>
-                        <HashLink className={"headerTab"} smooth to="/#contact">Contact</HashLink>
+                        {/* <HashLink className={"headerTab"} smooth to="/#testimony">Testimonials</HashLink>
+                        <HashLink className={"headerTab"} smooth to="/#contact">Contact</HashLink> */}
                     </>)
                         : (<div id="headerTabDropdown" className="headerTab">
                             &#9776;
