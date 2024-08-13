@@ -53,10 +53,6 @@ body {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    /* animation: fadeIn 3s ease-in; */
-}
-
-#headerComponent * {
     animation: fadeIn 3s ease-in;
 }
 
