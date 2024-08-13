@@ -200,8 +200,8 @@ a:hover {
 }
 
 .school_logo {
-    width: 250px;
-    max-width: 250px;
+    width: auto;
+    max-width: 255px;
     padding: 10px;
     border-radius: 10px;
     background-color: var(--main-font-color);
@@ -307,8 +307,8 @@ a:hover {
 
     .education_wrapper {
         flex-direction: row;
-        justify-content: space-between;
-        width: 90%;
+        justify-content: space-evenly;
+        width: 75%;
         max-width: 75%;
     }
 
