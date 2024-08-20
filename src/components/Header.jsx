@@ -3,15 +3,18 @@ import { HashLink } from 'react-router-hash-link';
 
 const Header = () => {
 
+    // state and handler to create a condensesed hamburger menu on smaller screens
     const [menuOptions, setMenuOptions] = useState(window.innerWidth > 480)
-    
     const handleMenuOptions = () => {
-        setMenuOptions(window.innerWidth > 480)
+        setMenuOptions(window.innerWidth > 550)
     }
     useEffect(() => {
         window.addEventListener("resize", handleMenuOptions)
         return () => { window.removeEventListener("resize", handleMenuOptions) }
     })
+
+    //state and handler to remember previous page and navigate to it on back button press
+    const [pageViews, setPageViews] = useState()
 
     return (
         <header id="headerComponent">
