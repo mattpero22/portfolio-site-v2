@@ -21,7 +21,7 @@ body {
 .App {
     background-color: #19180A;
     opacity: 1;
-    background-image: radial-gradient(circle at center center, #19180A, #5C7499), repeating-radial-gradient(circle at center center, #19180A, #19180A, 40px, transparent 80px, transparent 40px);
+    background-image: radial-gradient(circle at center center, var(--main-bg-color), var(--main-font-color)), repeating-radial-gradient(circle at center center, #19180A, #19180A, 40px, transparent 80px, transparent 40px);
     background-blend-mode: multiply;
     color: var(--main-font-color);
 }
@@ -34,17 +34,23 @@ body {
 /* mobile */
 /**********/
 #headerComponent {
+    z-index: 1;
     position: relative;
     height: 7vh;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    align-items: center;
+    animation: fadeIn 3s ease-in;
 }
 
-
-#headerLogo img {
-    max-width: 128px;
-    max-height: 128px;
+#headerLogo {
+    font-size: 64px;
+    font-weight: 500;
+    text-shadow: var(--main-font-color) 1px 0px 10px;
 }
+    #headerLogo:hover {
+        transform: scale(1.2) ease-in-out;
+    }
 
 #mainComponent {
     height: 88vh;
@@ -61,18 +67,19 @@ body {
 }
 
 #landingView {
+    z-index: 2;
     width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
 }
 
 #landingName,
 #landingTitle,
 #landingBlurb {
     z-index: 2;
+    text-shadow: #D7DFCE 1px 0 8px;
 }
 
 #landingName {
@@ -81,7 +88,7 @@ body {
 
 #landingTitle {
     font-size: 24px;
-    animation: fadeIn 3s;
+    animation: fadeIn 3s ease-in-out;
 }
 
 /**********/
@@ -89,7 +96,7 @@ body {
 /**********/
 @media (min-width: 481px) and (max-width: 767px) {
     :root {
-        --ripple-scale: 8;
+        --ripple-scale: 7;
     }
 
     #landingName {
@@ -107,7 +114,7 @@ body {
 /***********/
 @media (min-width: 767px) {
     :root {
-        --ripple-scale: 13;
+        --ripple-scale: 10;
     }
     #landingName {
         font-size: 128px;
@@ -121,6 +128,7 @@ body {
 
 /* ripple animation */
 .ripple {
+    z-index: 0;
     position: absolute;
     margin: auto;
     top: 50%;
@@ -143,17 +151,21 @@ body {
     background-image: transparent;
     border: double 1em transparent;
     border-radius: 50%;
-    background-image: radial-gradient(circle at center center, #000 30%, #5C7499), repeating-radial-gradient(circle at center center, #000, #000, 27px, transparent 54px, transparent 27px);
+    background-image: radial-gradient(circle at center center, #000 40%, var(--main-font-color)), repeating-radial-gradient(circle at center center, #000, #000, 27px, transparent 54px, transparent 27px);
     background-origin: border-box;
     background-clip: content-box, border-box;
 }
 
+.ripple {
+    animation: ripple 1s linear .50s 1 forwards;
+}
+
 .ripple:before {
-    animation: ripple 3s linear .50s 1 forwards;
+    animation: ripple 1s linear .50s 1 forwards;
 }
 
 .ripple:after {
-    animation: ripple 3s linear 1s 1 forwards;
+    animation: ripple 1s linear 1s 1 forwards;
 }
 
 @media (max-width: 480px) {
@@ -165,11 +177,18 @@ body {
 @keyframes ripple {
     0% {
         transform: scale(1);
-    }
-
-    100% {
-        transform: scale(var(--ripple-scale));
         opacity: 1;
+    }
+    70% {
+        opacity: .3;
+    }
+    90% {
+        transform: scale(var(--ripple-scale));
+        opacity: 0;
+    }
+    100% {
+        transform: scale(.01);
+        opacity: 0;
     }
 }
 
@@ -192,9 +211,6 @@ body {
     60% {
         transform: translateY(20px);
     }
-    80% {
-        transform: translateY(-20px);
-    }
     100% {
         transform: translateY(0px);
     }
@@ -213,16 +229,4 @@ body {
     100% {
         transform: rotateX(100deg);
     }
-}
-
-
-
-
-
-
-
-#cursorPos {
-    position: absolute;
-    top: 0;
-    left: 5px;
 }
