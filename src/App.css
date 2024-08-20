@@ -61,24 +61,24 @@ a:hover {
     position: sticky;
     top: 5px;
     display: flex;
-    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     animation: fadeIn 3s ease-in;
 }
 
 #headerLogo {
-    font-size: 64px;
+    font-size: 86px;
     font-weight: 500;
     font-family: var(--accent-font);
     color: var(--main-font-color);
     text-decoration: none;
 }
 
-#headerLogo:hover, .headerTab:hover {
+#headerLogo:hover,
+.headerTab:hover {
     cursor: pointer;
     text-shadow: 10px 10px grey;
-} 
+}
 
 .headerTab {
     font-size: 24px;
@@ -88,13 +88,32 @@ a:hover {
 }
 
 #headerTabGroup {
-    width: 100%;
     display: flex;
     justify-content: space-evenly;
 }
 
-#headerTabDropdown {
-    font-size: 32px;
+#headerTabButton {
+    font-size: 48px;
+}
+
+#headerTabOptions {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    height: 100px;
+    width: 100px;
+    background-color: blue;
+}
+
+.show_menuOptions {
+    opacity: 1 !important;
+    transition: opacity .33s linear;
+}
+
+.hide_menuOptions {
+    z-index: -1;
+    opacity: 0 !important;
+    transition: opacity .33s linear;
 }
 
 #topButton {
@@ -161,7 +180,11 @@ a:hover {
     font-family: var(--accent-font);
 }
 
-#about, #experience, #contact, #education, #testimony {
+#about,
+#experience,
+#contact,
+#education,
+#testimony {
     z-index: 2;
     width: 100vw;
     padding-top: 10vh;
@@ -189,25 +212,31 @@ a:hover {
     box-shadow: 30px 30px var(--accent-color);
 }
 
-.education_wrapper {
-    width: 250px;
-    max-width: 250px;
+.logo_wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    padding: 5px;
 }
 
-.school_logo {
-    width: auto;
-    max-width: 255px;
+.logo {
+    width: 250px;
+    max-width: 250px;
     padding: 10px;
     border-radius: 10px;
     background-color: var(--main-font-color);
 }
 
-.education_overview {
+.exp_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    margin-bottom: 22px;
+    width: 250px;
+}
+
+.exp_overview {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -215,27 +244,24 @@ a:hover {
     margin: 10px 0px;
 }
 
-.education_overview * {
+.exp_overview * {
     margin: 0px;
     margin-bottom: 5px;
     text-align: center;
     padding-bottom: 5px;
 }
 
-.education_bullets {
-    font-size: 1.2em;
+.exp_bullets {
     line-height: 1.33em;
     padding: 0px;
-    text-align: left;
     margin-top: 0px;
     list-style: none;
     margin: 10px 0px;
+
 }
 
-.education_bullets li {
+.exp_bullets li {
     padding: 5px;
-    font-size: 16px;
-    max-width: 300px;
 }
 
 /**********/
@@ -244,6 +270,10 @@ a:hover {
 @media (min-width: 481px) and (max-width: 767px) {
     #landingName {
         font-size: 96px;
+    }
+
+    .exp_wrapper {
+        width: 422px;
     }
 }
 
@@ -267,30 +297,36 @@ a:hover {
         max-width: 350px;
     }
 
-    .education_wrapper {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        width: 90%;
-        max-width: 90%;
+    .exp_wrapper {
+        width: 655px;
     }
 
-    .education_overview {
-        border-bottom: none;
-        margin: 0px 5px;
+
+    #headerComponent {
+        flex-direction: column;
     }
 
-    .education_wrapper * {
-        max-width: 30vw;
+    #headerTabGroup {
+        width: 100%;
     }
+
 }
 
 /***********/
 /* desktop */
 /***********/
-@media (min-width: 1024px) {
+@media (min-width: 1024px) and (max-width: 2559px) {
     #landingName {
         font-size: 128px;
+    }
+
+
+    #headerComponent {
+        flex-direction: column;
+    }
+
+    #headerTabGroup {
+        width: 100%;
     }
 
     #about {
@@ -305,16 +341,81 @@ a:hover {
         max-width: 500px;
     }
 
-    .education_wrapper {
+    .exp_wrapper {
         flex-direction: row;
+        align-items: center;
         justify-content: space-evenly;
-        width: 75%;
-        max-width: 75%;
+        width: 90%;
     }
 
-    .education_overview {
-        border-bottom: none;
+    .exp_bullets {
+        width: 422px;
     }
+
+    #education_items {
+        display: flex;
+        justify-content: space-evenly;
+        width: 75%;
+    }
+
+    #education_items .exp_wrapper {
+        flex-direction: column;
+    }
+}
+
+/***********/
+/* desktop */
+/***********/
+@media (min-width: 2560px) {
+    #landingName {
+        font-size: 222px;
+    }
+
+    #landingTitle {
+        font-size: 96px;
+    }
+
+
+    #headerComponent {
+        flex-direction: column;
+    }
+
+    #headerTabGroup {
+        width: 100%;
+    }
+
+    #about {
+        flex-direction: row;
+    }
+
+    #aboutBlurb {
+        max-width: 475px;
+    }
+
+    #portrait {
+        max-width: 500px;
+    }
+
+    .exp_wrapper {
+        align-items: center;
+        justify-content: space-evenly;
+        width: 90%;
+    }
+
+    .exp_bullets {
+        max-width: 1560px;
+    }
+
+    #education_items {
+        display: flex;
+        justify-content: center;
+        width: 75%;
+    }
+
+    #education_items .exp_wrapper {
+        flex-direction: column;
+    }
+
 
 }
 
@@ -327,43 +428,95 @@ a:hover {
     0% {
         transform: translateY(-1000px);
     }
+
     25% {
         transform: translateY(30px);
     }
+
     40% {
         transform: translateY(-30px);
     }
+
     60% {
         transform: translateY(20px);
     }
+
     100% {
         transform: translateY(0px);
     }
 }
 
 @keyframes fadeIn {
-    0% { opacity: 0; }
-    80% {opacity: 0;}
-    100% { opacity: 1; }
+    0% {
+        opacity: 0;
+    }
+
+    80% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
+/* condensed menu animation  and styles*/
+.icon-1,
+.icon-2,
+.icon-3 {
+    width: 64px;
+    height: 4px;
+    background-color: var(--main-font-color);
+    transition: all 400ms cubic-bezier(.84, .06, .52, 1.8);
+}
+
+.icon-1 {
+    transform: translateY(-12px);
+    animation-delay: 100ms;
+}
+
+.icon-3 {
+    transform: translateY(12px);
+    animation-delay: 250ms;
+}
+
+.hamburger-icon {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.icon-1.a {
+    transform: rotate(45deg) translateY(6px);
+}
+
+.icon-3.b {
+    transform: rotate(-45deg) translateY(-6px);
+}
+
+.icon-2.c {
+    opacity: 0;
+}
+
+.clear {
+    clear: both;
+}
 
 /* scrollbars */
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
-  }
+}
 
-  ::-webkit-scrollbar-button {
+::-webkit-scrollbar-button {
     height: 50px;
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: var(--main-font-color); 
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--main-font-color); 
-  }
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--main-font-color);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--main-font-color);
+}

@@ -3,15 +3,23 @@ import { HashLink } from 'react-router-hash-link';
 
 const Header = () => {
 
-    // state and handler to create a condensesed menu on smaller screens (below 550 px)
-    const [menuOptions, setMenuOptions] = useState(window.innerWidth > 550)
+    // state and handler to display condensesed menu on smaller screens (below 768 to match the tablet media query in App.css)
+    const [menuOptions, setMenuOptions] = useState(window.innerWidth > 768)
     const handleMenuOptions = () => {
-        setMenuOptions(window.innerWidth > 550)
+        setMenuOptions(window.innerWidth > 768)
     }
     useEffect(() => {
         window.addEventListener("resize", handleMenuOptions)
         return () => { window.removeEventListener("resize", handleMenuOptions) }
     })
+
+
+    // state and handler for click event on the condensed menu
+    const [menuClick, setMenuClick] = useState(false)
+    const handleMenuClick = () => {
+        // flip the state on click
+        setMenuClick(!menuClick)
+    }
 
     // state and handler to hide the nav bar when not at top of app
     const [showNav, setShowNav] = useState(true)
@@ -38,11 +46,16 @@ const Header = () => {
                         {/* <HashLink className={"headerTab"} smooth to="/#testimony">Testimonials</HashLink>
                         <HashLink className={"headerTab"} smooth to="/#contact">Contact</HashLink> */}
                     </>)
-                        : (<div id="headerTabDropdown" className="headerTab">
-                            &#9776;
-                        </div>)
+                        : (<div className="hamburger-icon" id="icon" onClick={handleMenuClick}>
+                            <div className={menuClick ? "icon-1" : "a icon-1"} id="a"></div>
+                            <div className={menuClick ? "icon-2" : "c icon-2"} id="b"></div>
+                            <div className={menuClick ? "icon-3" : "b icon-3"} id="c"></div>
+                            <div className="clear"></div>
+                          </div>)
                 }
             </div>
+
+            <div id="headerTabOptions" className={menuClick ? "show_menuOptions" : "hide_menuOptions"}></div>
 
         </header>
     )
