@@ -47,9 +47,9 @@ const Header = () => {
                         <HashLink className={"headerTab"} smooth to="/#contact">Contact</HashLink> */}
                     </>)
                         : (<div className="hamburger-icon" id="icon" onClick={handleMenuClick}>
-                            <div className={menuClick ? "icon-1" : "a icon-1"} id="a"></div>
-                            <div className={menuClick ? "icon-2" : "c icon-2"} id="b"></div>
-                            <div className={menuClick ? "icon-3" : "b icon-3"} id="c"></div>
+                            <div className={!menuClick ? "icon-1" : "a icon-1"} id="a"></div>
+                            <div className={!menuClick ? "icon-2" : "c icon-2"} id="b"></div>
+                            <div className={!menuClick ? "icon-3" : "b icon-3"} id="c"></div>
                             <div className="clear"></div>
                           </div>)
                 }
