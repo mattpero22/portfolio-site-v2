@@ -4,8 +4,9 @@ import React from "react";
 import Landing from "../pages/Landing";
 import About from "../pages/About";
 import Experience from "../pages/Experience"
-import Contact from "../pages/Contact";
+//import Contact from "../pages/Contact";
 import Education from "../pages/Education";
+//import Testimony from "../pages/Testimony";
 
 const Main = (props) => {
     return <div id="mainComponent">
@@ -13,7 +14,6 @@ const Main = (props) => {
         <About />
         <Experience />
         <Education />
-        <Contact />
     </div>
 }
 
