@@ -6,6 +6,7 @@
     --main-font-color: #E3DBDB;
     --accent-color: #2D343A;
     --main-font: url('../public/assets/fonts/Roboto-Regular.ttf');
+    --accent-font: 'Brush Script MT';
 }
 
 
@@ -62,7 +63,7 @@ body {
 #headerLogo {
     font-size: 64px;
     font-weight: 500;
-    font-family: 'Brush Script MT';
+    font-family: var(--accent-font);
     color: var(--main-font-color);
     text-decoration: none;
 }
@@ -150,6 +151,7 @@ body {
 
 .pageTitle {
     font-size: 48px;
+    font-family: var(--accent-font);
 }
 
 #about, #experience, #contact, #education {
@@ -191,8 +193,8 @@ body {
 }
 
 .school_logo {
+    width: 250px;
     max-width: 250px;
-    width: auto;
     padding: 10px;
     border-radius: 10px;
     background-color: var(--main-font-color);
@@ -217,15 +219,13 @@ body {
     padding: 0px;
     text-align: left;
     margin-top: 0px;
+    list-style: none;
 }
 
 .education_bullets li {
     padding: 5px;
     font-size: 16px;
-}
-
-.divider {
-    width: 100%;
+    max-width: 250px;
 }
 
 /**********/
@@ -256,6 +256,22 @@ body {
     #portrait {
         max-width: 350px;
     }
+
+    .education_wrapper {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 90%;
+    }
+
+    .education_overview {
+        border-bottom: none;
+        margin: 0px 5px;
+    }
+
+    .education_wrapper * {
+        max-width: 30vw;
+    }
 }
 
 /***********/
@@ -277,6 +293,23 @@ body {
     #portrait {
         max-width: 500px;
     }
+
+    .education_wrapper {
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 90%;
+        max-width: 90%;
+    }
+
+    .education_overview {
+        border-bottom: none;
+    }
+
+    .education_wrapper * {
+        max-width: 30vw;
+    }
+
+
 }
 
 /* landing name animation */
