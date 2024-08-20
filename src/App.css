@@ -2,21 +2,32 @@
 /* variables */
 /*************/
 :root {
-    --main-bg-color: #19180A;   
+    --main-bg-color: #19180A;
     --main-font-color: #E3DBDB;
+    --main-font: url('../public/assets/fonts/Roboto-Regular.ttf');
 }
-
 
 
 /**********/
 /* global */
 /**********/
+html,
+body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
 .App {
-    background-color: #28428F;
+    background-color: #5C7499;
     opacity: 1;
-    background-image: radial-gradient(circle at center center, #19180A, #28428F), repeating-radial-gradient(circle at center center, #19180A, #19180A, 27px, transparent 54px, transparent 27px);
+    background-image: radial-gradient(circle at center center, #19180A, #5C7499), repeating-radial-gradient(circle at center center, #19180A, #19180A, 27px, transparent 54px, transparent 27px);
     background-blend-mode: multiply;
     color: var(--main-font-color);
+}
+
+.App * {
+    font-family: var(--main-font)
 }
 
 /**********/
@@ -28,15 +39,18 @@
     display: flex;
     justify-content: space-between;
 }
-    #headerComponent * {
-        background-color: black;
-    }
+
+
+#headerLogo img {
+    max-width: 128px;
+    max-height: 128px;
+}
 
 #mainComponent {
     height: 88vh;
     width: 100vw;
     display: flex;
-    overflow: -moz-hidden-unscrollable;
+    overflow: hidden;
 }
 
 #footerComponent {
@@ -46,17 +60,60 @@
     margin-bottom: 0px;
 }
 
+#landingView {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#landingName,
+#landingTitle,
+#landingBlurb {
+    z-index: 2;
+}
+
+#landingName {
+    font-size: 64px;
+}
+
+#landingTitle {
+    font-size: 24px;
+    animation: fadeIn 3s;
+}
+
 /**********/
 /* tablet */
 /**********/
+@media (min-width: 481px) and (max-width: 767px) {
+    #landingName {
+        font-size: 96px;
+    }
+
+    #landingTitle {
+        font-size: 36px;
+    }
+
+}
 
 /***********/
 /* desktop */
 /***********/
+@media (min-width: 767px) {
+    #landingName {
+        font-size: 128px;
+    }
+
+    #landingTitle {
+        font-size: 48px;
+    }
+}
 
 
-/* ripple */
-.ripple0 {
+/* ripple animation */
+.ripple {
     position: absolute;
     margin: auto;
     top: 50%;
@@ -67,31 +124,79 @@
     height: 100px;
 }
 
-.ripple0:before,
-.ripple0:after {
-  content:'';
-  display:block;
-  position:absolute;
-  top:0; right:0; bottom:0; left:0;
-  background-image: transparent;
-                    border: double 1em transparent;
-                    border-radius: 50%;
-                    /* background-image: radial-gradient(circle, #19180A 35%, #28428F 65%);
+.ripple:before,
+.ripple:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: transparent;
+    border: double 1em transparent;
+    border-radius: 50%;
+    /* background-image: radial-gradient(circle, #19180A 35%, #28428F 65%);
                      */
-                    background-image: radial-gradient(circle at center center, #000 30%, #28428F), repeating-radial-gradient(circle at center center, #000, #000, 27px, transparent 54px, transparent 27px);
-                    background-origin: border-box;
-                    background-clip: content-box, border-box;
+    background-image: radial-gradient(circle at center center, #000 30%, #5C7499), repeating-radial-gradient(circle at center center, #000, #000, 27px, transparent 54px, transparent 27px);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
 }
 
-.ripple0:before {
-    animation: ripple 5s linear infinite;
-  }
-.ripple0:after {
-    animation: ripple 5s linear .75s infinite;
-  }
+.ripple:before {
+    animation: ripple 3s linear .50s 1;
+}
 
-@keyframes ripple{
-    0% {transform:scale(1); }
-    75% {transform:scale(6); opacity:1;}
-    100% {transform:scale(8); opacity:0;}
+.ripple:after {
+    animation: ripple 3s linear 1s 1;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(1);
+    }
+
+    75% {
+        transform: scale(9);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(12);
+        opacity: 0;
+    }
+}
+
+
+/* landing name animation */
+#landingName {
+    animation: dropIn ease-in-out 3s;
+}
+
+@keyframes dropIn {
+    0% {
+        transform: translateY(-1000px);
+    }
+    25% {
+        transform: translateY(30px);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(20px);
+    }
+    80% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    80% {opacity: 0;}
+    100% { opacity: 1; }
   }
