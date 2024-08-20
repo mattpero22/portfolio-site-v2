@@ -8,6 +8,7 @@ import './App.css'
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Main from './components/Main';
+import TopButton from './components/TopButton';
 
 
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={<Main />} />
       </Routes>
       <Footer />
+      <TopButton />
     </div>
   );
 }

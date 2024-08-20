@@ -3,7 +3,7 @@ import { HashLink } from 'react-router-hash-link';
 
 const Header = () => {
 
-    // state and handler to create a condensesed hamburger menu on smaller screens
+    // state and handler to create a condensesed menu on smaller screens
     const [menuOptions, setMenuOptions] = useState(window.innerWidth > 480)
     const handleMenuOptions = () => {
         setMenuOptions(window.innerWidth > 550)
@@ -13,24 +13,34 @@ const Header = () => {
         return () => { window.removeEventListener("resize", handleMenuOptions) }
     })
 
+    // state and handler to hide the nav bar when not at top of app
+    const [showNav, setShowNav] = useState(true)
+    const handleShowNav = () => {
+        setShowNav(Math.abs(document.getElementById('landing').getBoundingClientRect().top) < 250)
+    }
+    useEffect(() => {
+        document.getElementsByClassName("App")[0].addEventListener("scroll", handleShowNav)
+        return () => { document.getElementsByClassName("App")[0].removeEventListener("scroll", handleShowNav) }
+    })
+
     //state and handler to remember previous page and navigate to it on back button press
-    const [pageViews, setPageViews] = useState()
+    // const [pageViews, setPageViews] = useState()
 
     return (
-        <header id="headerComponent">
-            <HashLink id={"headerLogo"} smooth to="/#">matt pero</HashLink>
-        {
-            menuOptions ? (<>
-                                <HashLink className={"headerTab"} smooth to="/#about">About</HashLink>
-                                <HashLink className={"headerTab"} smooth to="/#experience">Experience</HashLink>
-                                <HashLink className={"headerTab"} smooth to="/#contact">Contact</HashLink>
-                          </>) 
-                        : (<div id="headerTabDropdown" className="headerTab">
-                                &#9776;
-                          </div>)
-        }
+        <header id="headerComponent" className={ showNav ? "show" : "hide" }>
+            <HashLink id={"headerLogo"} smooth to="/#landing">matt pero</HashLink>
+            {
+                menuOptions ? (<>
+                    <HashLink className={"headerTab"} smooth to="/#about">About</HashLink>
+                    <HashLink className={"headerTab"} smooth to="/#experience">Experience</HashLink>
+                    <HashLink className={"headerTab"} smooth to="/#contact">Contact</HashLink>
+                </>)
+                    : (<div id="headerTabDropdown" className="headerTab">
+                        &#9776;
+                    </div>)
+            }
 
-    </header>
+        </header>
     )
 }
 
