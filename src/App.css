@@ -1,0 +1,50 @@
+/*************/
+/* variables */
+/*************/
+:root {
+    --main-bg-color: #19180A;   
+    --main-font-color: #E3DBDB;
+}
+
+/**********/
+/* global */
+/**********/
+.App {
+    background-color: var(--main-bg-color);
+    color: var(--main-font-color);
+}
+
+/**********/
+/* mobile */
+/**********/
+#headerComponent {
+    height: 10vh;
+}
+
+#mainComponent {
+    height: 85vh;
+}
+
+#footerComponent {
+    height: 5vh;
+}
+
+/**********/
+/* tablet */
+/**********/
+
+/***********/
+/* desktop */
+/***********/
+
+
+/***********/
+/* hexagons */
+/***********/
+.hex0 {
+    font-size: 120px;
+}
+
+/***********/
+/* hexagon animation */
+/***********/
