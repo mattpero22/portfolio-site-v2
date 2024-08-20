@@ -348,6 +348,10 @@ a:hover {
         width: 90%;
     }
 
+    .exp_overview {
+        border-bottom: 0px;
+    }
+
     .exp_bullets {
         width: 422px;
     }
@@ -360,6 +364,11 @@ a:hover {
 
     #education_items .exp_wrapper {
         flex-direction: column;
+    }
+
+    #education_items .exp_overview {
+        flex-direction: column;
+        border-bottom: 2px solid var(--main-font-color);
     }
 }
 
