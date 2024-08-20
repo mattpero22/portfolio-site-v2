@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-
-export default function Landing() {
+const Landing = () => {
     return (
-        <div id="landingView">
+        <div id="landingPage">
             <div id="landingName"><strong>matt pero</strong></div>
             <div id="landingTitle"><strong>software engineer</strong></div>
         </div>
     )
 }
+
+export default Landing;

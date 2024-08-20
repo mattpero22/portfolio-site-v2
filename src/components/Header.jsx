@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { HashLink } from 'react-router-hash-link';
 
 const Header = () => {
 
     const [menuOptions, setMenuOptions] = useState(window.innerWidth > 480)
-
+    
     const handleMenuOptions = () => {
         setMenuOptions(window.innerWidth > 480)
     }
-
     useEffect(() => {
         window.addEventListener("resize", handleMenuOptions)
         return () => { window.removeEventListener("resize", handleMenuOptions) }
@@ -15,20 +15,12 @@ const Header = () => {
 
     return (
         <header id="headerComponent">
-        <div id="headerLogo">
-            matt pero
-        </div>
+            <HashLink id={"headerLogo"} smooth to="/#">matt pero</HashLink>
         {
             menuOptions ? (<>
-                            <div className="headerTab">
-                                About
-                            </div>
-                            <div className="headerTab">
-                                Experience
-                            </div>
-                            <div className="headerTab">
-                                Contact
-                            </div>
+                                <HashLink className={"headerTab"} smooth to="/#about">About</HashLink>
+                                <HashLink className={"headerTab"} smooth to="/#experience">Experience</HashLink>
+                                <HashLink className={"headerTab"} smooth to="/#contact">Contact</HashLink>
                           </>) 
                         : (<div id="headerTabDropdown" className="headerTab">
                                 &#9776;

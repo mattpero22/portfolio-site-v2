@@ -1,11 +1,18 @@
 import React from "react";
-import Landing from "../views/Landing";
 
-export default function Main() {
+// pages
+import Landing from "../pages/Landing";
+import About from "../pages/About";
+import Experience from "../pages/Experience"
+import Contact from "../pages/Contact";
 
-        return (
-            <div id="mainComponent">
-                <Landing />
-            </div>
-        )
+const Main = (props) => {
+    return <div id="mainComponent">
+        <Landing />
+        <About />
+        <Experience />
+        <Contact />
+    </div>
 }
+
+export default Main

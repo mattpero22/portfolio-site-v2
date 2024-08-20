@@ -15,13 +15,14 @@ html,
 body {
     margin: 0;
     height: 100%;
-    overflow: hidden;
 }
 
 .App {
     background-color: #19180A;
     opacity: 1;
     color: var(--main-font-color);
+    height: 100vh;
+    overflow-x: hidden;
 }
 
 .App * {
@@ -43,6 +44,8 @@ body {
 #headerLogo {
     font-size: 36px;
     font-weight: 500;
+    color: var(--main-font-color);
+    text-decoration: none;
 }
 
 #headerLogo:hover, .headerTab:hover {
@@ -53,6 +56,8 @@ body {
 .headerTab {
     font-size: 18px;
     font-weight: 500;
+    color: var(--main-font-color);
+    text-decoration: none;
 }
 
 #headerTabDropdown {
@@ -60,10 +65,8 @@ body {
 }
 
 #mainComponent {
-    height: 88vh;
-    width: 100vw;
     display: flex;
-    overflow: hidden;
+    flex-direction: column;
 }
 
 #footerComponent {
@@ -73,8 +76,9 @@ body {
     margin-bottom: 0px;
 }
 
-#landingView {
+#landingPage {
     z-index: 2;
+    height: 88vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -95,6 +99,16 @@ body {
 #landingTitle {
     font-size: 24px;
     animation: fadeIn 3s ease-in-out;
+}
+
+#about, #experience, #contact {
+    z-index: 2;
+    height: 88vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 /**********/
@@ -152,3 +166,24 @@ body {
     80% {opacity: 0;}
     100% { opacity: 1; }
 }
+
+
+/* scrollbars */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-button {
+    height: 50px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--main-font-color); 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--main-font-color); 
+  }
