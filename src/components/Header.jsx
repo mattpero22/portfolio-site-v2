@@ -43,7 +43,7 @@ const Header = () => {
                     menuOptions ? (<>
                         <HashLink className={"headerTab"} smooth to="/#about">About</HashLink>
                         <HashLink className={"headerTab"} smooth to="/#experience">Experience</HashLink>
-                        <HashLink className={"headerTab"} smooth to="/#experience">Education</HashLink>
+                        <HashLink className={"headerTab"} smooth to="/#education">Education</HashLink>
                         {/* <HashLink className={"headerTab"} smooth to="/#testimony">Testimonials</HashLink>
                         <HashLink className={"headerTab"} smooth to="/#contact">Contact</HashLink> */}
                     </>)
@@ -59,7 +59,7 @@ const Header = () => {
             <div id="headerTabOptions" className={`${menuOptions ? "hide" : "show"} ${menuClick ? "show_menuOptions" : "hide_menuOptions"}`}>
                 <HashLink className={"headerTab"} smooth to="/#about">About</HashLink>
                 <HashLink className={"headerTab"} smooth to="/#experience">Experience</HashLink>
-                <HashLink className={"headerTab"} smooth to="/#experience">Education</HashLink>
+                <HashLink className={"headerTab"} smooth to="/#education">Education</HashLink>
             </div>
 
         </header>
