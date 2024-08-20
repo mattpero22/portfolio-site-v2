@@ -73,21 +73,25 @@
   display:block;
   position:absolute;
   top:0; right:0; bottom:0; left:0;
-  border-radius:50%;
-  border:1px solid #011242;
+  background-image: transparent;
+                    border: double 1em transparent;
+                    border-radius: 50%;
+                    /* background-image: radial-gradient(circle, #19180A 35%, #28428F 65%);
+                     */
+                    background-image: radial-gradient(circle at center center, #000 30%, #28428F), repeating-radial-gradient(circle at center center, #000, #000, 27px, transparent 54px, transparent 27px);
+                    background-origin: border-box;
+                    background-clip: content-box, border-box;
 }
 
 .ripple0:before {
-    animation: ripple 6s linear infinite;
+    animation: ripple 5s linear infinite;
   }
 .ripple0:after {
-    animation: ripple 6s linear 1s infinite;
+    animation: ripple 5s linear .75s infinite;
   }
-
-
 
 @keyframes ripple{
     0% {transform:scale(1); }
-    75% {transform:scale(17.5); opacity:1;}
-    100% {transform:scale(20); opacity:0;}
+    75% {transform:scale(6); opacity:1;}
+    100% {transform:scale(8); opacity:0;}
   }
