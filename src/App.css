@@ -19,9 +19,9 @@ body {
 }
 
 .App {
-    background-color: #5C7499;
+    background-color: #19180A;
     opacity: 1;
-    background-image: radial-gradient(circle at center center, #19180A, #5C7499), repeating-radial-gradient(circle at center center, #19180A, #19180A, 27px, transparent 54px, transparent 27px);
+    background-image: radial-gradient(circle at center center, #19180A, #5C7499), repeating-radial-gradient(circle at center center, #19180A, #19180A, 40px, transparent 80px, transparent 40px);
     background-blend-mode: multiply;
     color: var(--main-font-color);
 }
@@ -88,6 +88,10 @@ body {
 /* tablet */
 /**********/
 @media (min-width: 481px) and (max-width: 767px) {
+    :root {
+        --ripple-scale: 8;
+    }
+
     #landingName {
         font-size: 96px;
     }
@@ -102,6 +106,9 @@ body {
 /* desktop */
 /***********/
 @media (min-width: 767px) {
+    :root {
+        --ripple-scale: 13;
+    }
     #landingName {
         font-size: 128px;
     }
@@ -136,19 +143,23 @@ body {
     background-image: transparent;
     border: double 1em transparent;
     border-radius: 50%;
-    /* background-image: radial-gradient(circle, #19180A 35%, #28428F 65%);
-                     */
     background-image: radial-gradient(circle at center center, #000 30%, #5C7499), repeating-radial-gradient(circle at center center, #000, #000, 27px, transparent 54px, transparent 27px);
     background-origin: border-box;
     background-clip: content-box, border-box;
 }
 
 .ripple:before {
-    animation: ripple 3s linear .50s 1;
+    animation: ripple 3s linear .50s 1 forwards;
 }
 
 .ripple:after {
-    animation: ripple 3s linear 1s 1;
+    animation: ripple 3s linear 1s 1 forwards;
+}
+
+@media (max-width: 480px) {
+    :root {
+        --ripple-scale: 5
+    }
 }
 
 @keyframes ripple {
@@ -156,21 +167,17 @@ body {
         transform: scale(1);
     }
 
-    75% {
-        transform: scale(9);
-        opacity: 1;
-    }
-
     100% {
-        transform: scale(12);
-        opacity: 0;
+        transform: scale(var(--ripple-scale));
+        opacity: 1;
     }
 }
 
 
 /* landing name animation */
 #landingName {
-    animation: dropIn ease-in-out 3s;
+    animation: dropIn ease-in-out 3s 1;
+    transition: transform 1s;
 }
 
 @keyframes dropIn {
@@ -194,9 +201,29 @@ body {
     }
 }
 
-
 @keyframes fadeIn {
     0% { opacity: 0; }
     80% {opacity: 0;}
     100% { opacity: 1; }
-  }
+}
+
+@keyframes respondToCursor {
+    0% {
+        transform: rotateX(0deg);
+    }
+    100% {
+        transform: rotateX(100deg);
+    }
+}
+
+
+
+
+
+
+
+#cursorPos {
+    position: absolute;
+    top: 0;
+    left: 5px;
+}
