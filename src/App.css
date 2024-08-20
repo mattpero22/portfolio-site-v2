@@ -19,7 +19,7 @@ body {
 }
 
 .App {
-    background-color: #19180A;
+    background: linear-gradient(var(--main-bg-color), var(--accent-color));
     opacity: 1;
     color: var(--main-font-color);
     height: 100vh;
@@ -32,13 +32,13 @@ body {
 
 .show {
     opacity: 1 !important;
-    transition: opacity .5s linear;
+    transition: opacity .33s linear;
 }
 
 .hide {
-    display: none;
+    z-index: -1;
     opacity: 0 !important;
-    transition: opacity .5s linear;
+    transition: opacity .33s linear;
 }
 
 /**********/
@@ -49,14 +49,20 @@ body {
     position: sticky;
     top: 5px;
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
-    align-items: baseline;
+    align-items: center;
+    /* animation: fadeIn 3s ease-in; */
+}
+
+#headerComponent * {
     animation: fadeIn 3s ease-in;
 }
 
 #headerLogo {
-    font-size: 48px;
+    font-size: 64px;
     font-weight: 500;
+    font-family: 'Brush Script MT';
     color: var(--main-font-color);
     text-decoration: none;
 }
@@ -71,6 +77,12 @@ body {
     font-weight: 500;
     color: var(--main-font-color);
     text-decoration: none;
+}
+
+#headerTabGroup {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 #headerTabDropdown {
@@ -94,6 +106,8 @@ body {
 
 #topButton:hover {
     cursor: pointer;
+    background-color: var(--accent-color);
+    transition: background-color .5s;
 }
 
 #mainComponent {
@@ -128,32 +142,33 @@ body {
 }
 
 #landingTitle {
-    font-size: 24px;
+    font-size: 48px;
+    font-weight: 10;
+    font-family: 'Brush Script MT';
     animation: fadeIn 3s ease-in-out;
 }
 
-#about, #experience, #contact {
-    z-index: 2;
-    width: 100vw;
-    margin-bottom: 50px;
+.pageTitle {
+    font-size: 48px;
 }
 
-#about {
+#about, #experience, #contact, #education {
+    z-index: 2;
+    width: 100vw;
+    padding-top: 10vh;
+    margin-bottom: 10vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
 }
 
+
 #aboutBlurb {
     padding: 20px;
     width: auto;
     max-width: 300px;
     font-size: 20px;
-}
-
-#aboutBlurbHeading {
-    font-size: 64px;
 }
 
 #portrait {
@@ -165,6 +180,54 @@ body {
     box-shadow: 30px 30px var(--accent-color);
 }
 
+.education_wrapper {
+    width: auto;
+    max-width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.school_logo {
+    max-width: 250px;
+    width: auto;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--main-font-color);
+}
+
+.education_overview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 2px solid var(--main-font-color);
+}
+
+.education_overview * {
+    margin: 0px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.education_bullets {
+    font-size: 1.2em;
+    line-height: 1.33em;
+    padding: 0px;
+    text-align: left;
+    margin-top: 0px;
+}
+
+.education_bullets li {
+    padding: 5px;
+    font-size: 16px;
+}
+
+.divider {
+    width: 100%;
+}
+
 /**********/
 /* tablet */
 /**********/
@@ -172,16 +235,16 @@ body {
     #landingName {
         font-size: 96px;
     }
-
-    #landingTitle {
-        font-size: 36px;
-    }
 }
 
 /**********/
 /* laptop or smaller display */
 /**********/
 @media (min-width: 768px) and (max-width: 1023px) {
+    #landingName {
+        font-size: 116px;
+    }
+
     #about {
         flex-direction: row;
     }
@@ -195,17 +258,12 @@ body {
     }
 }
 
-
 /***********/
 /* desktop */
 /***********/
 @media (min-width: 1024px) {
     #landingName {
         font-size: 128px;
-    }
-
-    #landingTitle {
-        font-size: 48px;
     }
 
     #about {

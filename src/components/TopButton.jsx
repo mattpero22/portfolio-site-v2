@@ -14,7 +14,7 @@ const TopButton = () => {
 
 
     return (
-        <HashLink id={"topButton"} className={showButton ? "show headerTab" : "hide headerTab"} smooth to="/#landing">&#8593;</HashLink>
+        <HashLink id={"topButton"} className={`headerTab ${showButton ? "show" : "hide"}` } smooth to="/#landing">&#8593;</HashLink>
     )
 }
 

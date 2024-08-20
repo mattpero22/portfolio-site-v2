@@ -3,8 +3,8 @@ import { HashLink } from 'react-router-hash-link';
 
 const Header = () => {
 
-    // state and handler to create a condensesed menu on smaller screens
-    const [menuOptions, setMenuOptions] = useState(window.innerWidth > 480)
+    // state and handler to create a condensesed menu on smaller screens (below 550 px)
+    const [menuOptions, setMenuOptions] = useState(window.innerWidth > 550)
     const handleMenuOptions = () => {
         setMenuOptions(window.innerWidth > 550)
     }
@@ -27,19 +27,21 @@ const Header = () => {
     // const [pageViews, setPageViews] = useState()
 
     return (
-        <header id="headerComponent" className={ showNav ? "show" : "hide" }>
-            <HashLink id={"headerLogo"} smooth to="/#landing">matt pero</HashLink>
-            {
-                menuOptions ? (<>
-                    <HashLink className={"headerTab"} smooth to="/#about">About</HashLink>
-                    <HashLink className={"headerTab"} smooth to="/#experience">Experience</HashLink>
-                    <HashLink className={"headerTab"} smooth to="/#contact">Contact</HashLink>
-                </>)
-                    : (<div id="headerTabDropdown" className="headerTab">
-                        &#9776;
-                    </div>)
-            }
-
+        <header id="headerComponent" className={showNav ? "show" : "hide"}>
+            <HashLink id={"headerLogo"} smooth to="/#landing">MP</HashLink>
+            <div id="headerTabGroup">
+                {
+                    menuOptions ? (<>
+                        <HashLink className={"headerTab"} smooth to="/#about">About</HashLink>
+                        <HashLink className={"headerTab"} smooth to="/#experience">Experience</HashLink>
+                        <HashLink className={"headerTab"} smooth to="/#experience">Education</HashLink>
+                        <HashLink className={"headerTab"} smooth to="/#contact">Contact</HashLink>
+                    </>)
+                        : (<div id="headerTabDropdown" className="headerTab">
+                            &#9776;
+                        </div>)
+                }
+            </div>
         </header>
     )
 }

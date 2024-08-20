@@ -1,8 +1,8 @@
 const Landing = () => {
     return (
         <div id="landing">
-            <div id="landingName"><strong>matt pero</strong></div>
-            <div id="landingTitle"><strong>software engineer</strong></div>
+            <div id="landingName"><strong>Matt Pero</strong></div>
+            <div id="landingTitle">Software engineer</div>
         </div>
     )
 }
