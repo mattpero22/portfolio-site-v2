@@ -177,7 +177,6 @@ body {
 /* landing name animation */
 #landingName {
     animation: dropIn ease-in-out 3s 1;
-    transition: transform 1s;
 }
 
 @keyframes dropIn {
