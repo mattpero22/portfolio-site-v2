@@ -6,7 +6,7 @@ const Header = () => {
     // state and handler to display condensesed menu on smaller screens (below 768 to match the tablet media query in App.css)
     const [menuOptions, setMenuOptions] = useState(window.innerWidth > 768)
     const handleMenuOptions = () => {
-        setMenuOptions(window.innerWidth > 768)
+        setMenuOptions(window.innerWidth > 767)
     }
     useEffect(() => {
         window.addEventListener("resize", handleMenuOptions)
@@ -14,12 +14,13 @@ const Header = () => {
     })
 
 
-    // state and handler for click event on the condensed menu
-    const [menuClick, setMenuClick] = useState(false)
-    const handleMenuClick = () => {
-        // flip the state on click
-        setMenuClick(!menuClick)
-    }
+            // state and handler for click event on the condensed menu
+            const [menuClick, setMenuClick] = useState(false)
+            const handleMenuClick = () => {
+                // flip the state on click, check if we should force the menu hidden
+                if (window.innerWidth > 768) setMenuClick(false)
+                else setMenuClick(!menuClick)
+            }
 
     // state and handler to hide the nav bar when not at top of app
     const [showNav, setShowNav] = useState(true)
@@ -55,7 +56,11 @@ const Header = () => {
                 }
             </div>
 
-            <div id="headerTabOptions" className={menuClick ? "show_menuOptions" : "hide_menuOptions"}></div>
+            <div id="headerTabOptions" className={`${menuOptions ? "hide" : "show"} ${menuClick ? "show_menuOptions" : "hide_menuOptions"}`}>
+                <HashLink className={"headerTab"} smooth to="/#about">About</HashLink>
+                <HashLink className={"headerTab"} smooth to="/#experience">Experience</HashLink>
+                <HashLink className={"headerTab"} smooth to="/#experience">Education</HashLink>
+            </div>
 
         </header>
     )
