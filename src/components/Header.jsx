@@ -3,7 +3,7 @@ import { HashLink } from 'react-router-hash-link';
 
 const Header = () => {
 
-    // state and handler to display condensesed menu on smaller screens (below 768 to match the tablet media query in App.css)
+    // state and handler to display condensed menu on smaller screens (below 768 to match the tablet media query in App.css)
     const [menuOptions, setMenuOptions] = useState(window.innerWidth > 768)
     const handleMenuOptions = () => {
         setMenuOptions(window.innerWidth > 767)
@@ -14,13 +14,13 @@ const Header = () => {
     })
 
 
-            // state and handler for click event on the condensed menu
-            const [menuClick, setMenuClick] = useState(false)
-            const handleMenuClick = () => {
+    // state and handler for click event on the condensed menu
+    const [menuClick, setMenuClick] = useState(false)
+    const handleMenuClick = () => {
                 // flip the state on click, check if we should force the menu hidden
                 if (window.innerWidth > 768) setMenuClick(false)
                 else setMenuClick(!menuClick)
-            }
+    }
 
     // state and handler to hide the nav bar when not at top of app
     const [showNav, setShowNav] = useState(true)

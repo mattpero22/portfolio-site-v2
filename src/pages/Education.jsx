@@ -4,7 +4,7 @@ import React from "react";
 const Education = () => {
     return (
         <div id="education">
-            <p className="pageTitle">My Education</p>
+            <p className="pageTitle">Education</p>
             <div id="education_items">
             <div className="exp_wrapper">
                 <div className="logo_wrapper">
