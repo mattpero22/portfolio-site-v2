@@ -1,4 +1,5 @@
 import React from "react";
+import ga_logo from "../images/ga_logo_transparent.png";
 
 
 const Education = () => {
@@ -8,7 +9,7 @@ const Education = () => {
             <div id="education_items">
             <div className="exp_wrapper">
                 <div className="logo_wrapper">
-                    <img class="logo" src="https://seeklogo.com/images/G/general-assembly-logo-82F6D5B9DB-seeklogo.com.png" alt="general assembly school logo" />
+                    <img class="logo" src={ga_logo} alt="general assembly school logo" />
                     <div className="exp_overview">
                         <h2>General Assembly</h2>
                         <h3>Software Engineering Immersive Bootcamp</h3>
